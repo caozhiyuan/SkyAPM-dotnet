@@ -8,12 +8,11 @@ steps:
 - script: |
     git checkout clrprofiler
     git clone https://github.com/dotnet/coreclr.git $(Agent.BuildDirectory)/coreclr
-    powershell ./scripts/install-vcpkgs.ps1
+    powershell ./tools/install-vcpkgs.ps1
     git submodule update --init -- "src/SkyApm.Transport.Grpc.Protocol/protocol" 
 
-    set _VSWHERE="%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
-    if exist %_VSWHERE% ( for /f "usebackq tokens=*" %i in (`%_VSWHERE% -latest -prerelease -property installationPath`) do set _VSPATH=%i)
-    call "%_VSPATH%\VC\Auxiliary\Build\vcvars64.bat" 
+    set VSPATH="C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise"
+    call "%VSPATH%\VC\Auxiliary\Build\vcvars64.bat" 
 
     cd src\SkyAPM.ClrProfiler
     SET BuildArch=x64
