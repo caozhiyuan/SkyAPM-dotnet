@@ -1,9 +1,6 @@
 trigger:
 - clrprofiler
 
-variables:
-  Agent.BuildDirectory: 'C:\\'
-
 pool:
   vmImage: 'vs2017-win2016'
 
