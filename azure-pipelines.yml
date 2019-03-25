@@ -11,8 +11,7 @@ steps:
     powershell ./tools/install-vcpkgs.ps1
     git submodule update --init -- "src/SkyApm.Transport.Grpc.Protocol/protocol" 
 
-    set VSPATH="C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise"
-    call "%VSPATH%\VC\Auxiliary\Build\vcvars64.bat" 
+    "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\VC\Auxiliary\Build\vcvars64.bat" 
 
     cd src\SkyAPM.ClrProfiler
     SET BuildArch=x64
