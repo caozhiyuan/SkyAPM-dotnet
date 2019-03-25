@@ -10,5 +10,5 @@ pool:
   vmImage: 'vs2017-win2016'
 
 steps:
-- script: echo %VCPKG_ROOT%
+- script: dir
   displayName: 'Run a one-line script'
